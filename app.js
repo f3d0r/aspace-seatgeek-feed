@@ -1,16 +1,19 @@
 var request = require('request');
 var csvtojson = require('csvtojson');
-const constants = require('./config/index')
+var pLimit = require('p-limit');
 
-execute();
+const constants = require('./config/index')
+const limit = pLimit(100);
+
 var currReq = 0;
 var totalReqs;
 
+execute();
 async function execute() {
     const zipCodes = await csvtojson().fromFile('./zipcodes.csv');
     reqs = [];
     zipCodes.forEach(function (currentZipCode) {
-        reqs.push(getEvents(currentZipCode));
+        reqs.push(limit(() => getEvents(currentZipCode)));
     });
     totalReqs = reqs.length;
     Promise.all(reqs)
@@ -39,7 +42,7 @@ function getEvents(zipCodeInfo) {
 ***REMOVED***;
 
         request(options, function (error, response, body) {
-            console.log("DONE WITH #" + currReq++ + " REQUEST OUT OF " + totalReqs);
+            console.log("PERCENT DONE: " + (100 * (currReq++) / totalReqs).toFixed(4) + "%");
             if (error) {
                 reject(error)
     ***REMOVED*** else {
