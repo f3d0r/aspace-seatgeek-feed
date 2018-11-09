@@ -16,12 +16,17 @@ async function execute() {
         reqs.push(limit(() => getEvents(currentZipCode)));
     });
     totalReqs = reqs.length;
-    Promise.all(reqs)
-        .catch(function (error) {
-            throw error;
-***REMOVED***).then(function (responses) {
-            console.log(responses.length);
-***REMOVED***);
+    var currReqNum = 0;
+    while (currReqNum < reqs.length) {
+        Promise.all(reqs.slice(currReqNum, Math.min(currReqNum + 50, reqs.length)))
+            .catch(function (error) {
+                throw error;
+    ***REMOVED***).then(function (responses) {
+                console.log(responses.length);
+    ***REMOVED***);
+        currReqNum += 50;
+    }
+    
 }
 
 function getEvents(zipCodeInfo) {
