@@ -18,15 +18,15 @@ async function execute() {
     totalReqs = reqs.length;
     var currReqNum = 0;
     while (currReqNum < reqs.length) {
-        Promise.all(reqs.slice(currReqNum, Math.min(currReqNum + 200, reqs.length)))
-            .catch(function (error) {
-                throw error;
-    ***REMOVED***).then(function (responses) {
-                console.log(responses.length);
-    ***REMOVED***);
-        currReqNum += 200;
+        try {
+            var responses = await Promise.all(reqs.slice(currReqNum, Math.min(currReqNum + 200, reqs.length)));
+            console.log(responses.length)
+            currReqNum += 200;
+***REMOVED*** catch (error) {
+            throw error;
+***REMOVED***
     }
-    
+
 }
 
 function getEvents(zipCodeInfo) {
