@@ -25,6 +25,9 @@ async function execute() {
 }
 
 function getEvents(zipCodeInfo) {
+    var username = constants.SEATGEEK_API.CLIENT_ID;
+    var password = constants.SEATGEEK_API.SECRET;
+    const auth = "Basic " + new Buffer(username + ":" + password).toString("base64");
     return new Promise(function (resolve, reject) {
         var options = {
             method: 'GET',
@@ -37,7 +40,7 @@ function getEvents(zipCodeInfo) {
             json: true,
             timeout: 30000,
             headers: {
-                'authorization': 'Basic TVRNNE5qZzJPVFY4TVRVME1UY3pPVFEwTlM0eE53OjVjMzJlYzczYTg4YjgxZWNlYjMxYjU1NGE0YjgyOWY2M2Q4M2ZlNTMwMmY2MjgzOWQ1MzcyYWViNDlmZmM3YzE=',
+                'authorization': auth,
                 'Cache-Control': 'no-store'
     ***REMOVED***
 ***REMOVED***;
