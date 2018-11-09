@@ -17,10 +17,12 @@ async function execute() {
     });
     totalReqs = reqs.length;
     var currReqNum = 0;
+    var batchNum = 1;
     while (currReqNum < reqs.length) {
         try {
+            console.log("STARTING BATCH NUM #" + batchNum);
             var responses = await Promise.all(reqs.slice(currReqNum, Math.min(currReqNum + 200, reqs.length)));
-            console.log(responses.length)
+            console.log("FINISHED BATCH NUM #" + batchNum++);
             currReqNum += 200;
 ***REMOVED*** catch (error) {
             throw error;
@@ -51,7 +53,6 @@ function getEvents(zipCodeInfo) {
 ***REMOVED***;
 
         request(options, function (error, response, body) {
-            console.log("PERCENT DONE: " + (100 * (currReq++) / totalReqs).toFixed(4) + "% ||  " + currReq + " OUT OF " + totalReqs);
             if (error) {
                 reject(error)
     ***REMOVED*** else {
