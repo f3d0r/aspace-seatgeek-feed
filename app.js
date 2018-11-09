@@ -35,7 +35,7 @@ function getEvents(zipCodeInfo) {
                 per_page: '5000'
         ***REMOVED***
             json: true,
-            timeout: 15000,
+            timeout: 30000,
             headers: {
                 authorization: 'Basic TVRNNE5qZzJPVFY4TVRVME1UY3pPVFEwTlM0eE53OjVjMzJlYzczYTg4YjgxZWNlYjMxYjU1NGE0YjgyOWY2M2Q4M2ZlNTMwMmY2MjgzOWQ1MzcyYWViNDlmZmM3YzE='
     ***REMOVED***
