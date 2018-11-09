@@ -1,0 +1,19 @@
+{
+  "name": "seatgeek_feed",
+  "version": "1.0.0",
+  "description": "db_name, Inc. - SeatGeek Feed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/db_name/seatgeek-feed.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/db_name/seatgeek-feed/issues"
+  },
+  "homepage": "https://gitlab.com/db_name/seatgeek-feed#readme"
+}
