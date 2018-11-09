@@ -3,11 +3,6 @@ var csvtojson = require('csvtojson');
 var pLimit = require('p-limit');
 
 const constants = require('./config/index')
-const limit = pLimit(200);
-
-var currReq = 0;
-var totalReqs;
-
 execute();
 async function execute() {
     const zipCodes = await csvtojson().fromFile('./zipcodes.csv');
@@ -54,6 +49,7 @@ function getEvents(zipCodeInfo) {
 
         request(options, function (error, response, body) {
             if (error) {
+                console.log("HERE!");
                 reject(error)
     ***REMOVED*** else {
                 resolve(body);
