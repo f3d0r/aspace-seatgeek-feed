@@ -1,6 +1,5 @@
 var request = require('request');
 var csvtojson = require('csvtojson');
-var pLimit = require('p-limit');
 
 const constants = require('./config/index')
 execute();
@@ -8,7 +7,7 @@ async function execute() {
     const zipCodes = await csvtojson().fromFile('./zipcodes.csv');
     reqs = [];
     zipCodes.forEach(function (currentZipCode) {
-        reqs.push(limit(() => getEvents(currentZipCode)));
+        reqs.push(getEvents(currentZipCode));
     });
     totalReqs = reqs.length;
     var currReqNum = 0;
