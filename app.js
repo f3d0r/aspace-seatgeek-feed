@@ -3,7 +3,7 @@ var csvtojson = require('csvtojson');
 var pLimit = require('p-limit');
 
 const constants = require('./config/index')
-const limit = pLimit(100);
+const limit = pLimit(200);
 
 var currReq = 0;
 var totalReqs;
@@ -18,13 +18,13 @@ async function execute() {
     totalReqs = reqs.length;
     var currReqNum = 0;
     while (currReqNum < reqs.length) {
-        Promise.all(reqs.slice(currReqNum, Math.min(currReqNum + 50, reqs.length)))
+        Promise.all(reqs.slice(currReqNum, Math.min(currReqNum + 200, reqs.length)))
             .catch(function (error) {
                 throw error;
     ***REMOVED***).then(function (responses) {
                 console.log(responses.length);
     ***REMOVED***);
-        currReqNum += 50;
+        currReqNum += 200;
     }
     
 }
