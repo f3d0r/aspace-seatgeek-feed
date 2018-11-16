@@ -1,77 +1,77 @@
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+module.exports = {
+    SEATGEEK_API: {
+        CLIENT_ID: "seatgeek_client_id",
+        SECRET: "seatgeek_secret"
+    },
+    db: {
+        DATABASE_USER: 'api',
+        DATABASE_PASSWORD: 'db_password',
+        DATABASE_NAME: 'aspace',
+        DATABASE_PORT: 'db_port'
+    },
+    DATABASE_IPS: [ //'***REMOVED***',
+        '***REMOVED***',
+        // '***REMOVED***',
+        // '***REMOVED***',
+        // '***REMOVED***',
+        // '***REMOVED***',
+        // '***REMOVED***'
+    ],
+    geojson: {
+        settings: {
+            Point: ['lat', 'lng']
+        }
+    },
+    PROXIES: [
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***1',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***',
+        '***REMOVED***'
+    ]
+};

@@ -22,4 +22,4 @@ exports.getPools = function (singleDB = false) {
     } else {
         return pools;
     }
-***REMOVED***
+};

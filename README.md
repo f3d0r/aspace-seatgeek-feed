@@ -1,3 +1,3 @@
 # seatgeek-feed
 
-db_name, Inc. - SeatGeek Feed
+aspace, Inc. - SeatGeek Feed

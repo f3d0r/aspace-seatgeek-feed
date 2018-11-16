@@ -30,10 +30,10 @@ console.log = function (d, log = true) {
     process.stdout.write(d + '\n');
     if (log)
         logger.log(d);
-***REMOVED***
+};
 logger.write = function (d) {
     console.log(d);
-***REMOVED***
+};
 
 //MAIN SCRIPT
 execute();
@@ -54,7 +54,7 @@ async function execute() {
     await sql.runRaw("DELETE FROM `seatgeek_events`;");
     console.log("SUCCESS - EMPTIED SEATGEEK_EVENTS DATABASE");
 
-    await sql.addObjects('seatgeek_events', ['id', 'pretty_title', 'lng', 'lat', 'date'], parsedResults);
+    await sql.addObjects('seatgeek_events', ['id', 'pretty_title', 'city', 'lng', 'lat', 'date'], parsedResults);
 
     console.log("SUCCESS - ADDED NEW SEATGEEK EVENTS # : " + parsedResults.length);
     await misc.sleep(5000);
@@ -69,28 +69,28 @@ function getEvents(locInfo) {
     return new Promise(function (resolve, reject) {
         var options = {
             method: 'GET',
-            url: 'https://db_user.seatgeek.com/2/events',
+            url: 'https://api.seatgeek.com/2/events',
             qs: {
                 lat: locInfo.lat,
                 lon: locInfo.lng,
                 per_page: '5000'
-        ***REMOVED***
+            },
             json: true,
             timeout: 30000,
             headers: {
                 'authorization': auth,
                 'Connection': 'Keep-Alive',
                 'Cache-Control': 'no-store'
-    ***REMOVED***
-***REMOVED***;
+            }
+        };
 
         request(options, function (error, response, body) {
             if (error) {
                 reject(error);
-    ***REMOVED*** else {
+            } else {
                 resolve(body);
-    ***REMOVED***
-***REMOVED***);
+            }
+        });
     });
 }
 
@@ -102,13 +102,13 @@ async function parseResults(rawResults) {
         for (var eventIndex = 0; eventIndex < currentResponse.length; eventIndex++) {
             var currentResult = currentResponse[eventIndex];
             var location = currentResult.venue.location;
-            var currentImport = [currentResult.id, currentResult.short_title, location.lon, location.lat, currentResult.datetime_utc];
+            var currentImport = [currentResult.id, currentResult.short_title, currentResult.venue.city, location.lon, location.lat, currentResult.datetime_utc];
             var isComingUp = isInLessThan48Hours(currentResult.datetime_utc);
             if (ids.indexOf(currentResult.id) == -1 && isComingUp) {
                 results.push(currentImport);
                 ids.push(currentResult.id);
-    ***REMOVED***
-***REMOVED***
+            }
+        }
     }
     return results;
 }

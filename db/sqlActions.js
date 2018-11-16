@@ -1,6 +1,6 @@
 var db = require('./db');
 
-***REMOVED***
+module.exports = {
     addObjects: function (database, keys, objects) {
         return new Promise(function (resolveAll, rejectAll) {
             var reqs = [];
@@ -10,26 +10,26 @@ var db = require('./db');
                         var sql = `INSERT INTO \`${database}\` (\`` + keys[0] + `\``;
                         for (index = 1; index < keys.length; index++) {
                             sql += ', `' + keys[index] + '` ';
-                ***REMOVED***
+                        }
                         sql += ') VALUES ?; ';
                         currentPool.query(sql, [objects], function (error, results, fields) {
                             if (error)
                                 reject(error);
                             else
                                 resolve(results);
-                ***REMOVED***);
-            ***REMOVED***));
-        ***REMOVED***);
-    ***REMOVED***
+                        });
+                    }));
+                });
+            }
             Promise.all(reqs)
                 .then(function (responses) {
                     resolveAll(responses);
-        ***REMOVED***)
+                })
                 .catch(function (error) {
                     rejectAll(error);
-        ***REMOVED***);
-***REMOVED***);
-***REMOVED***
+                });
+        });
+    },
     runRaw: function (sql, singleDB = false) {
         return new Promise(function (resolveAll, rejectAll) {
             var reqs = [];
@@ -41,16 +41,16 @@ var db = require('./db');
                                 reject(error);
                             else
                                 resolve(rows);
-                ***REMOVED***);
-            ***REMOVED***));
-        ***REMOVED***);
-    ***REMOVED***
+                        });
+                    }));
+                });
+            }
             Promise.all(reqs)
                 .then(function (response) {
                     resolveAll(response);
-        ***REMOVED***).catch(function (error) {
+                }).catch(function (error) {
                     rejectAll(error);
-        ***REMOVED***);
-***REMOVED***);
+                });
+        });
     }
-***REMOVED***
+};
